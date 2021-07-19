@@ -31,7 +31,6 @@ class MoveBot:
         
     def publishIt(self):
         self.subscribeToIt()
-        print("Hey")
         while not rospy.is_shutdown():
             print("z=", self.velocity.angular.z)
             self.pub.publish(self.velocity)
