@@ -1,0 +1,22 @@
+<launch>
+    <node
+            name="hello_publisher"
+            pkg="week2"
+            type="hello_publisher.py"
+            output="screen"
+    />
+
+    <node
+            name="world_publisher"
+            pkg="week2"
+            type="world_publisher.py"
+            output="screen"
+    />
+
+    <node
+            name="hello_world_publisher"
+            pkg="week2"
+            type="hello_world_publisher.py"
+            output="screen"
+    />
+</launch>

@@ -1,0 +1,22 @@
+<launch>
+    <node
+            name="radius_publisher"
+            pkg="week2"
+            type="tb_publisher.py"
+            output="screen"
+    />
+
+    <node
+            name="ang_vel_server"
+            pkg="week2"
+            type="tb_server.py"
+            output="screen"
+    />
+
+    <node
+            name="infinity"
+            pkg="week2"
+            type="tb_infinity.py"
+            output="screen"
+    />
+</launch>
