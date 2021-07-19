@@ -20,7 +20,6 @@ class MoveBot:
             self.velocity.linear.x = 0.1
             self.data = self.the_client(msg.data)
             self.velocity.angular.z = self.data.ang_vel
-            print(self.velocity.angular.z)
         except rospy.ServiceException as e:
             self.velocity.linear.x = 0
             self.velocity.angular.z = 0
@@ -32,7 +31,6 @@ class MoveBot:
     def publishIt(self):
         self.subscribeToIt()
         while not rospy.is_shutdown():
-            print("z=", self.velocity.angular.z)
             self.pub.publish(self.velocity)
             self.rate.sleep()
     
