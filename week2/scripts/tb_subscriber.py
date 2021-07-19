@@ -10,7 +10,7 @@ class MoveBot:
     def __init__(self):
         self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
         self.velocity = Twist()
-        self.rate = rospy.Rate(5)
+        self.rate = rospy.Rate(1)
 
     
     def callback(self, msg):
