@@ -12,6 +12,5 @@
                 pkg="week3"
                 type="PID_Controller.py"
                 output="screen"
-                args="-path1, -path2, -path3"
         />
 </launch>
