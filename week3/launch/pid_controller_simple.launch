@@ -1,0 +1,17 @@
+<launch>
+        <arg name="path_topic" default="1"/>
+        <node
+                name="path_publisher"
+                pkg="week3"
+                type="path_publisher.py"
+                output="screen"
+        />
+
+        <node
+                name="PID_Controller"
+                pkg="week3"
+                type="PID_Controller.py"
+                output="screen"
+                args="-path1, -path2, -path3"
+        />
+</launch>
