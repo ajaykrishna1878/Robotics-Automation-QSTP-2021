@@ -158,8 +158,9 @@ class pid_controller:
 
 if __name__ == '__main__':
     rospy.init_node('PID_Controller')
-    if len(sys.argv) == 2:
-        path = int(sys.argv[1])
+    path = get_param('path_topic', '3')
+    #if len(sys.argv) == 2:
+    #    path = int(sys.argv[1])
     a = ControlCalculator(path)
     a.calculations()
     rospy.spin()
