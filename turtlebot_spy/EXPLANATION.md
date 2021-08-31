@@ -8,7 +8,8 @@ As the title says, we can generate a waypoint around the obstacle. Instead of th
 
 The following algorithm can be used assuming we know the shape of the obstacle.
 
-'''text
+```text
 get obstacle_shape
-
-'''
+if path is in obstacle_shape:
+  generate new waypoint outside obstacle_shape
+```
