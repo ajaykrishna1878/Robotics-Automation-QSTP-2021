@@ -13,3 +13,4 @@ get obstacle_shape
 if path is in obstacle_shape:
   generate new waypoint outside obstacle_shape
 ```
+We can use the Shapely package to determine points that are outside the obstacle.
