@@ -1,16 +1,7 @@
-## When there are obstacles
+# When there are obstacles
 
-The program written uses a PID controller algorithm to move the turtlebot towards the thief. However, it does not take into account that there could be obstacles in the path. Let's look at how to get around the problem of existence of obstacles.
+The program written uses a PID controller algorithm to move the turtlebot towards the thief. However, it does not take into account that there could be obstacles in the path.
 
-### Using waypoints
+We first assume the obstacle is non-existent and generate waypoints. Assuming we know the coordinates of the obstacle, we iterate over the line joining each consecutive way points and check if it, and the waypoints, is in the obstacle. If either the line or the waypoints are inside the shape of the obstacle, we remove these waypoints or the line(s) joining them. We then randomly generate a few points on a shape just bigger than the obstacle. We take a specified circle with a maximum radius centred at the closest waypoint (on the robot's side of the obstacle) and search among the randomly generated points if any of them are within this radius.
 
-As the title says, we can generate a waypoint around the obstacle. Instead of the thief's pose as the goal, we can take this waypoint as the goal first and then after reaching there, the bot can move to the thief's pose.
-
-The following algorithm can be used assuming we know the shape of the obstacle.
-
-```text
-get obstacle_shape
-if path is in obstacle_shape:
-  generate new waypoint outside obstacle_shape
-```
-We can use the Shapely package to determine points that are outside the obstacle.
+If there are any, we take the closest point among these and join it to the path. Since this point is outside the obstacle, we can treat this as a regular point in the path, and check if the line joining this waypoint and the next point in the path is inside the obstacle, in which case we repeat this process and continue until we find a path that goes across the obstacle.
