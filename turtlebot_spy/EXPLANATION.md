@@ -18,8 +18,14 @@ while i < len(waypoints)+1:
   if waypoints[i] is in obstacle or line joining waypoints[i] and waypoints[i+1] is in obstacle:
     i = i - 1
     points = [randomly generate points in shape of obstacles]
+    dist_min = distance between points[0] and waypoints[i]
     
     for j in range(len(points)):
       if points[j] is in circle of radius r centred at waypoints[i]:
-        waypoints.append(points[j])
+        if dist_min > distance between points[j] and waypoints[i]:
+          dist_min = distance between points[j] and waypoints[i]
+          next_waypoint_index = j
+          
+    waypoints.append(points[next_waypoint_index])
+    i += 1
 ```
